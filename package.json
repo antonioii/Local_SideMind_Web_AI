@@ -1,0 +1,31 @@
+{
+  "name": "local-sidemind-web-ai",
+  "version": "1.0.0",
+  "description": "Privacy-first Chrome side panel assistant powered by Chrome built-in AI when available.",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "chrome-extension",
+    "built-in-ai",
+    "gemini-nano",
+    "local-ai",
+    "side-panel",
+    "ocr"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mammoth": "^1.12.0",
+    "pdfjs-dist": "^5.6.205",
+    "tesseract.js": "^7.0.0",
+    "turndown": "^7.2.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.43",
+    "@types/turndown": "^5.0.6",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  }
+}

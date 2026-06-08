@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local SideMind</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="header-row">
+          <h1>Local SideMind</h1>
+          <div class="header-controls">
+            <label class="compact-field">
+              <span>Theme</span>
+              <select id="theme-select">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="dark-sun">Dark Sun</option>
+              </select>
+            </label>
+            <label class="compact-field compact-field-small">
+              <span>Lang</span>
+              <select id="language-select">
+                <option value="en">EN</option>
+                <option value="pt-BR">PT-BR</option>
+                <option value="es">ES</option>
+                <option value="ja">JA</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+              </select>
+            </label>
+            <button id="memory-toggle" type="button" class="memory-button">Memory</button>
+          </div>
+        </div>
+
+        <div class="status-strip">
+          <div class="inline-status">
+            <strong id="model-name">Chrome Built-in AI</strong>
+          </div>
+          <div class="inline-status">
+            <span id="llm-dot" class="status-dot is-warning" aria-hidden="true"></span>
+            <strong id="llm-status">not installed</strong>
+          </div>
+          <div class="inline-status muted">
+            <span id="environment-status">Local browser assistant</span>
+          </div>
+        </div>
+
+        <section class="memory-panel">
+          <div id="memory-editor" class="memory-editor hidden">
+            <div class="memory-header">
+              <span id="memory-count">0/572</span>
+            </div>
+            <label class="sr-only" for="memory-input">Memory</label>
+            <textarea
+              id="memory-input"
+              maxlength="572"
+              placeholder="You are a local LLM assistant running inside a chrome extension"
+            ></textarea>
+            <div class="memory-actions">
+              <button id="memory-resume" type="button">Resume</button>
+              <button id="memory-save" type="button">Save</button>
+              <button id="memory-minimize" type="button">Minimize</button>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main class="app-body">
+        <section id="trust-gate" class="trust-gate">
+          <p id="trust-prompt">
+            Do you trust this page? The content will be copied as context to your model conversation.
+            Malicious websites can try to manipulate it.
+          </p>
+          <div class="trust-actions">
+            <button id="trust-page" type="button">Trust page and load context</button>
+            <button id="deny-page" type="button" class="secondary">Do not load page context</button>
+          </div>
+          <p id="page-context-notice" class="notice hidden"></p>
+        </section>
+
+        <section id="interaction-panel" class="interaction-panel hidden">
+          <section class="terminal-shell">
+            <div id="chat-log" class="chat-log" aria-live="polite"></div>
+          </section>
+
+          <div id="activity-indicator" class="activity-indicator is-idle" aria-live="polite">
+            <span class="activity-dot"></span>
+            <span id="activity-text">Ready</span>
+          </div>
+
+          <label class="sr-only" for="message-input">Message</label>
+          <textarea id="message-input" rows="3" placeholder="Ask something about the page or your files"></textarea>
+
+          <div class="action-row">
+            <label class="attachment-button" for="attachment-input">+</label>
+            <input id="attachment-input" type="file" multiple />
+            <button id="reset-button" type="button" class="secondary">Reset</button>
+            <button id="copy-transcript" type="button" class="secondary">Copy</button>
+            <button id="send-button" type="button">Send</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p class="footer-brand">
+          Copyright © Local SideMind.
+          <a
+            id="github-link"
+            class="github-link"
+            href="https://github.com/antonioii/Local_SideMind_Web_AI"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <img src="assets/icons/github.png" alt="GitHub" />
+          </a>
+        </p>
+        <p>
+          Tip: Local LLMs can make mistakes. Review code carefully and never execute anything you
+          do not understand or do not trust.
+        </p>
+      </footer>
+    </div>
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>

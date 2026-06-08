@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Local SideMind",
+  "version": "0.1.0",
+  "description": "Local Chrome side panel assistant powered by built-in browser AI when available.",
+  "permissions": ["sidePanel", "activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "assets/icons/original_icon.png",
+    "32": "assets/icons/original_icon.png",
+    "48": "assets/icons/original_icon.png",
+    "128": "assets/icons/original_icon.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "action": {
+    "default_title": "Open Local SideMind",
+    "default_icon": {
+      "16": "assets/icons/original_icon.png",
+      "32": "assets/icons/original_icon.png",
+      "48": "assets/icons/original_icon.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pdf.worker.mjs",
+        "ocr/worker.min.js",
+        "ocr/core/*",
+        "ocr/lang/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
