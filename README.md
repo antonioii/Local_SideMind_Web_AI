@@ -4,7 +4,7 @@ Local SideMind is a privacy-first Chrome side panel assistant powered by Chrome 
 
 ## Why this exists
 
-Google has been building on-device AI capabilities into Chromium/Chrome. One example is Gemini Nano, a local language model that can run inside Chrome. Compatible browsers can answer language-model prompts locally instead of sending every prompt to an external AI service.
+Google has been building on-device AI capabilities into Chromium/Chrome. One example is Gemini Nano, a local language model that can run inside Chrome. Compatible browsers can answer language-model prompts locally instead of sending every prompt to an external AI service. It runs entirely offline, can receive files and see the browser page content.
 
 This capability is still developer-oriented. Depending on your Chrome version and platform, you may need a supported Chrome build, experimental flags, or origin-trial access before `LanguageModel` is available to extensions. Local SideMind wraps that lower-level browser interface in a practical Chrome side panel.
 
